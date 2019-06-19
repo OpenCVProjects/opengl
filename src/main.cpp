@@ -27,9 +27,16 @@ void creacionMenu(void) {
 	glutAddMenuEntry("Verde claro", DIBUJO_2);
 	glutAddMenuEntry("Azul claro", DIBUJO_3);
 
+	menuForma = glutCreateMenu(onMenu);
+		glutAddMenuEntry("Alambre", FORMA_1);
+		glutAddMenuEntry("Solido", FORMA_2);
+		glutAddMenuEntry("Il. Cons", FORMA_3);
+		glutAddMenuEntry("Il. Suave", FORMA_4);
+
         menuPrincipal = glutCreateMenu(onMenu);
 	glutAddSubMenu("Color de fondo", menuFondo);
 	glutAddSubMenu("Color del dibujo", menuDibujo);
+	glutAddSubMenu("Tipo de dibujo", menuForma);
 	// Carga el menú con el boton derecho.
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 }

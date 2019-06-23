@@ -59,12 +59,13 @@ class Mundo {
 	tipoVista iForma;
 	int iFondo;
 	int iDibujo;
+	tipoVista inForma;
 
 
 public:
 	Mundo();
 
-        void drawAxis(void);
+    void drawAxis(void);
 	void display(void);
 	void onMouse(int button, int state, int x, int y);
 	void onMotion(int x, int y);
@@ -80,6 +81,8 @@ public:
 	int getIFondo();
 	void setIDibujo(int iDibujo);
 	int getIDibujo();
+	void setInForma(tipoVista iForma);
+	tipoVista getInForma();
 	void drawModel(Modelo modelo,float escala);
 
 

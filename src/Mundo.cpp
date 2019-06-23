@@ -58,7 +58,7 @@ void Mundo::drawAxis(void) {
 
 void Mundo::drawModel(Modelo modelo,float escala) {
 			glDisable(GL_LIGHTING);
-			modelo.Draw_Model(wired,escala,zoom);
+			modelo.Draw_Model(getInForma(),escala,zoom);
 			glEnable(GL_LIGHTING);
 
 }
@@ -173,6 +173,13 @@ switch (opcion) {
 	case DIBUJO_3:
 		setIDibujo(5);
 		break;
+	case FORMA_1:
+		setInForma(wired);
+		break;
+	case FORMA_2:
+		setInForma(solid);
+		break;
+
 	}
 	glutPostRedisplay();
 }
@@ -217,6 +224,18 @@ void Mundo::setIDibujo(int iDibujo) {
 int Mundo::getIDibujo() {
 	return iDibujo;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+void Mundo::setInForma(tipoVista inForma) {
+	this->inForma = inForma;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+tipoVista Mundo::getInForma() {
+	return inForma;
+}
+
 
 Mundo::~Mundo() {
 }

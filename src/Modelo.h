@@ -17,7 +17,7 @@ using namespace std;
 typedef vector<Cara> ListaFace;
 typedef vector<Punto3D> ListaVertex;
 
- enum tipoVista {wired};
+ enum tipoVista {wired, solid};
 
 
 class Modelo {

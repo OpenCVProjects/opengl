@@ -1,59 +1,52 @@
 #include "Modelo.h"
 
 Modelo::Modelo() {
-	_NumCaras=0;
-	_NumVertices=0;
+	_NumCaras = 0;
+	_NumVertices = 0;
 	inicializarParametros();
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 Modelo::Modelo(const int ncaras, const int nvertices) {
-	_NumCaras=ncaras;
-	_NumVertices=nvertices;
+	_NumCaras = ncaras;
+	_NumVertices = nvertices;
 	inicializarParametros();
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
-void Modelo::setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3) {
+void Modelo::setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2,
+		GLfloat v3) {
 	v[0] = v0;
 	v[1] = v1;
 	v[2] = v2;
 	v[3] = v3;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 void Modelo::inicializarParametros() {
-	alpha=0;
-	beta=0;
+	alpha = 0;
+	beta = 0;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 int Modelo::getNCaras() {
 	return _NumCaras;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 void Modelo::setNCaras(const int val) {
-	_NumCaras=val;
+	_NumCaras = val;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 int Modelo::getNVertices() {
 	return _NumVertices;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 void Modelo::setNVertices(const int val) {
-	_NumVertices=val;
+	_NumVertices = val;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Función para cargar el modelo.
@@ -66,8 +59,7 @@ void Modelo::Load_Model(char fileName[50]) {
 	char cadena[100];
 
 	// Apertura para lectura.
-	if ((fich = fopen("../Esfera.asc", "r")) == NULL)
-	{
+	if ((fich = fopen("../Esfera.asc", "r")) == NULL) {
 		cout << " Error en la apertura. Es posible que el fichero no exista \n "
 				<< endl;
 		exit(1);
@@ -124,21 +116,54 @@ void Modelo::Load_Model(char fileName[50]) {
 	fclose(fich);
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
-void Modelo::Draw_Model(tipoVista iForma,float scale_from_editor, float zoom){
-   // cout<<"Caras: "<<_NumCaras<<endl;
-    cout<<scale_from_editor<<endl;
+void Modelo::Draw_Model(tipoVista iForma, float scale_from_editor, float zoom) {
+	// cout<<"Caras: "<<_NumCaras<<endl;
+	int forma;
+	cout << scale_from_editor << endl;
 	for (int FaceNumber = 0; FaceNumber < _NumCaras; FaceNumber++) {
-                    glBegin(GL_LINES);
-                        glVertex3f(ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()*scale_from_editor*zoom);
-                        glVertex3f(ListaPuntos3D[ListaCaras[FaceNumber].getB()].getX()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getB()].getY()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getB()].getZ()*scale_from_editor*zoom);
-                        glVertex3f(ListaPuntos3D[ListaCaras[FaceNumber].getC()].getX()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getC()].getY()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()*scale_from_editor*zoom);
-			
-			glVertex3f(ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()*scale_from_editor*zoom, ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()*scale_from_editor*zoom);                    glEnd();	       glEnd();	
+		switch (iForma) {
+		case wired:
+			forma = GL_LINES;
+			break;
+		case solid:
+			forma = GL_POLYGON;
+			break;
 		}
-}
+		glBegin(forma);
+		glVertex3f(
+				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
+						* scale_from_editor * zoom);
+		glVertex3f(
+				ListaPuntos3D[ListaCaras[FaceNumber].getB()].getX()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getB()].getY()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getB()].getZ()
+						* scale_from_editor * zoom);
+		glVertex3f(
+				ListaPuntos3D[ListaCaras[FaceNumber].getC()].getX()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getC()].getY()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()
+						* scale_from_editor * zoom);
 
+		glVertex3f(
+				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
+						* scale_from_editor * zoom,
+				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
+						* scale_from_editor * zoom);
+		glEnd();
+		glEnd();
+	}
+}
 
 Modelo::~Modelo() {
 }

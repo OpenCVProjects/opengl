@@ -32,7 +32,7 @@ private:
 	int _NumCaras;
 	int _NumVertices;
 
-	void setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
+//	void setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
 
 public:
 	Modelo();

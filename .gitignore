@@ -1,0 +1,15 @@
+/Debug/
+
+/Debug/src/*.*
+/.settings/
+/.metadata/
+Debug
+Debug
+/.settings
+/src/foo
+/src/mm
+/src/lk
+/src/main
+/src/sdsda
+/*.cproject
+/.project

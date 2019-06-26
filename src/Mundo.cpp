@@ -126,6 +126,14 @@ void Mundo::keyPressed(unsigned char key, int x, int y) {
 			glutDestroyWindow(window);
 			exit(0);
 			break;
+		case 32:
+			if (getInForma() == solid){
+				setInForma(wired);
+			}else{
+				setInForma(solid);
+			}
+
+			break;
         }               
 /*
 		// Tecla espacio	

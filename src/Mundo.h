@@ -2,6 +2,7 @@
 #define MUNDO_H_
 
 #include "Modelo.h"
+#include "Light.h"
 #include <iostream>
 #include <sys/time.h>
 #include <time.h>

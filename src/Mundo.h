@@ -30,6 +30,7 @@ const float colores [6][3] = {
 };
 
 
+
 class Mundo {
 
 	int width;
@@ -38,6 +39,7 @@ class Mundo {
 	float angulo;
 	int window;
 	Modelo Sol;
+	Light light;
         
 	// Tamaño de los ejes y del alejamiento de Z.
 	int tamanio;
@@ -62,6 +64,8 @@ class Mundo {
 	int iDibujo;
 	tipoVista inForma;
 
+	GLfloat material_difuso[4], material_ambiente[4], material_specular[4], material_emission[4];
+	GLfloat luzdifusa[4], luzambiente[4], luzspecular[4], posicion0[4], rotacion[4];
 
 public:
 	Mundo();

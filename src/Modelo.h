@@ -17,7 +17,7 @@ using namespace std;
 typedef vector<Cara> ListaFace;
 typedef vector<Punto3D> ListaVertex;
 
- enum tipoVista {wired, solid};
+ enum tipoVista {wired, solid, flat, smooth};
 
 
 class Modelo {
@@ -31,8 +31,6 @@ private:
 
 	int _NumCaras;
 	int _NumVertices;
-
-//	void setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
 
 public:
 	Modelo();

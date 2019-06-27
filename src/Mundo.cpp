@@ -61,6 +61,24 @@ void Mundo::drawModel(Modelo modelo,float escala) {
 			modelo.Draw_Model(getInForma(),escala,zoom);
 			glEnable(GL_LIGHTING);
 
+//			light.setBrillo(10);
+//			setVector4(luzdifusa, 1.0, 1.0, 1.0, 1.0);
+//			setVector4(luzambiente, 0.50, 0.50, 0.50, 1.0);
+//			setVector4(luzspecular, 0.20, 0.20, 0.20, 1.0);
+//			setVector4(posicion0, 5.0, 5.0, 6.0, 0.0);
+//			glLightfv(GL_LIGHT0, GL_DIFFUSE, luzdifusa);
+//			glLightfv(GL_LIGHT0, GL_AMBIENT, luzambiente);
+//			glLightfv(GL_LIGHT0, GL_SPECULAR, luzspecular);
+//			glLightfv(GL_LIGHT0, GL_POSITION, posicion0);
+//			glEnable(GL_LIGHTING);
+//			glEnable(GL_LIGHT0);
+//
+//			setVector4(material_specular, 0.1, 0.5, 0.3, 0.0);
+//			setVector4(material_emission, 0.1, 0.3, 0.5, 0.0);
+//			glMaterialfv(GL_FRONT, GL_SPECULAR, material_specular);
+//			glMaterialfv(GL_FRONT, GL_EMISSION, material_emission);
+//			glMaterialf(GL_FRONT, GL_SHININESS, light.getBrillo());
+
 }
 
 void Mundo::display(void) {
@@ -186,6 +204,46 @@ switch (opcion) {
 		break;
 	case FORMA_2:
 		setInForma(solid);
+		break;
+	case FORMA_3:
+		light.setBrillo(10);
+		setVector4(luzdifusa, 1.0, 1.0, 1.0, 1.0);
+		setVector4(luzambiente, 0.50, 0.50, 0.50, 1.0);
+		setVector4(luzspecular, 0.20, 0.20, 0.20, 1.0);
+		setVector4(posicion0, 5.0, 5.0, 6.0, 0.0);
+		glLightfv(GL_LIGHT0, GL_DIFFUSE, luzdifusa);
+		glLightfv(GL_LIGHT0, GL_AMBIENT, luzambiente);
+		glLightfv(GL_LIGHT0, GL_SPECULAR, luzspecular);
+		glLightfv(GL_LIGHT0, GL_POSITION, posicion0);
+		glEnable(GL_LIGHTING);
+		glEnable(GL_LIGHT0);
+
+		setVector4(material_specular, 0.1, 0.5, 0.3, 0.0);
+		setVector4(material_emission, 0.1, 0.3, 0.5, 0.0);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, material_specular);
+		glMaterialfv(GL_FRONT, GL_EMISSION, material_emission);
+		glMaterialf(GL_FRONT, GL_SHININESS, light.getBrillo());
+		setInForma(flat);
+		break;
+	case FORMA_4:
+		light.setBrillo(10);
+		setVector4(luzdifusa, 1.0, 1.0, 1.0, 1.0);
+		setVector4(luzambiente, 0.50, 0.50, 0.50, 1.0);
+		setVector4(luzspecular, 0.20, 0.20, 0.20, 1.0);
+		setVector4(posicion0, 5.0, 5.0, 6.0, 0.0);
+		glLightfv(GL_LIGHT0, GL_DIFFUSE, luzdifusa);
+		glLightfv(GL_LIGHT0, GL_AMBIENT, luzambiente);
+		glLightfv(GL_LIGHT0, GL_SPECULAR, luzspecular);
+		glLightfv(GL_LIGHT0, GL_POSITION, posicion0);
+		glEnable(GL_LIGHTING);
+		glEnable(GL_LIGHT0);
+
+		setVector4(material_specular, 0.1, 0.5, 0.3, 0.0);
+		setVector4(material_emission, 0.1, 0.3, 0.5, 0.0);
+		glMaterialfv(GL_FRONT, GL_SPECULAR, material_specular);
+		glMaterialfv(GL_FRONT, GL_EMISSION, material_emission);
+		glMaterialf(GL_FRONT, GL_SHININESS, light.getBrillo());
+		setInForma(smooth);
 		break;
 
 	}

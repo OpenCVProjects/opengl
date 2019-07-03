@@ -14,6 +14,15 @@ Modelo::Modelo(const int ncaras, const int nvertices) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void Modelo::setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2,
+		GLfloat v3) {
+	v[0] = v0;
+	v[1] = v1;
+	v[2] = v2;
+	v[3] = v3;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 void Modelo::inicializarParametros() {
 	alpha = 0;
 	beta = 0;
@@ -109,57 +118,141 @@ void Modelo::Load_Model(char fileName[50]) {
 
 ////////////////////////////////////////////////////////////////////////////////
 void Modelo::Draw_Model(tipoVista iForma, float scale_from_editor, float zoom) {
-	// cout<<"Caras: "<<_NumCaras<<endl;
-	int forma;
-	cout << scale_from_editor << endl;
-	for (int FaceNumber = 0; FaceNumber < _NumCaras; FaceNumber++) {
-		switch (iForma) {
-		case wired:
-			forma = GL_LINES;
-			break;
-		case solid:
-			forma = GL_TRIANGLES;
-			break;
-		case flat:
-			glShadeModel(GL_FLAT);
-			break;
-		case smooth:
-			glShadeModel(GL_SMOOTH);
-			break;
-		}
-		glBegin(forma);
-		glVertex3f(
-				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
-						* scale_from_editor * zoom);
-		glVertex3f(
-				ListaPuntos3D[ListaCaras[FaceNumber].getB()].getX()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getB()].getY()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getB()].getZ()
-						* scale_from_editor * zoom);
-		glVertex3f(
-				ListaPuntos3D[ListaCaras[FaceNumber].getC()].getX()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getC()].getY()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()
-						* scale_from_editor * zoom);
 
-		glVertex3f(
-				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
-						* scale_from_editor * zoom,
-				ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
-						* scale_from_editor * zoom);
-		glEnd();
-		glEnd();
+	switch (iForma) {
+	case wired:
+		glDisable(GL_LIGHTING);
+		for (int FaceNumber = 0; FaceNumber < _NumCaras; FaceNumber++) {
+			glBegin(GL_LINES);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
+							* scale_from_editor * zoom);
+			glEnd();
+
+		}
+		//cout << "wired" << endl;
+		break;
+
+	case flat:
+		glShadeModel(GL_FLAT);
+		glEnable(GL_LIGHTING);
+
+		for (int FaceNumber = 0; FaceNumber < _NumCaras; FaceNumber++) {
+			glBegin(GL_TRIANGLES);
+			// Ajustamos la normal de la cara
+			glNormal3f(ListaCaras[FaceNumber].getNormalX(),
+					ListaCaras[FaceNumber].getNormalY(),
+					ListaCaras[FaceNumber].getNormalZ());
+
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()
+							* scale_from_editor * zoom);
+
+			glEnd();
+		}
+		break;
+
+	case smooth:
+		glShadeModel(GL_SMOOTH);
+		glEnable(GL_LIGHTING);
+
+		for (int FaceNumber = 0; FaceNumber < _NumCaras; FaceNumber++) {
+			glBegin(GL_TRIANGLES);
+			// Ajustamos la normal para cada punto
+			glNormal3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getZ()
+							* scale_from_editor * zoom);
+
+			glNormal3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getB()].getZ()
+							* scale_from_editor * zoom);
+
+			glNormal3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()
+							* scale_from_editor * zoom);
+			glVertex3f(
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getX()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getY()
+							* scale_from_editor * zoom,
+					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()
+							* scale_from_editor * zoom);
+
+			glEnd();
+
+		}
+		break;
 	}
+
 }
 
 Modelo::~Modelo() {

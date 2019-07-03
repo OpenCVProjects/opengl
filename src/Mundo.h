@@ -2,10 +2,11 @@
 #define MUNDO_H_
 
 #include "Modelo.h"
-#include "Light.h"
+#include "Camara.h"
 #include <iostream>
 #include <sys/time.h>
 #include <time.h>
+#include "Light.h"
 
 using namespace std;
 
@@ -30,7 +31,6 @@ const float colores [6][3] = {
 };
 
 
-
 class Mundo {
 
 	int width;
@@ -39,8 +39,12 @@ class Mundo {
 	float angulo;
 	int window;
 	Modelo Sol;
-	Light light;
-        
+	Light *lights;
+	Camara *camaras;
+
+	// Entero indicando la camara activa del array de camaras
+	int activeCamera; 
+
 	// Tamaño de los ejes y del alejamiento de Z.
 	int tamanio;
 	int z0;
@@ -49,7 +53,7 @@ class Mundo {
 	float escalaGeneral;
 
 	// Rotacion de los modelos.
-	float alpha; 
+	float alpha;
 	float beta;
 
 	// Variables para la gestion del ratón.
@@ -62,15 +66,12 @@ class Mundo {
 	tipoVista iForma;
 	int iFondo;
 	int iDibujo;
-	tipoVista inForma;
 
-	GLfloat material_difuso[4], material_ambiente[4], material_specular[4], material_emission[4];
-	GLfloat luzdifusa[4], luzambiente[4], luzspecular[4], posicion0[4], rotacion[4];
 
 public:
 	Mundo();
 
-    void drawAxis(void);
+  void drawAxis(void);
 	void display(void);
 	void onMouse(int button, int state, int x, int y);
 	void onMotion(int x, int y);
@@ -81,14 +82,17 @@ public:
 	void cargarModelo(char* nombreModelo);
 	int getWidth();
 	int getHeight();
-;
+
 	void setIFondo(int iFondo);
 	int getIFondo();
 	void setIDibujo(int iDibujo);
 	int getIDibujo();
-	void setInForma(tipoVista iForma);
-	tipoVista getInForma();
 	void drawModel(Modelo modelo,float escala);
+	void setIForma(tipoVista iShade);
+	tipoVista getIForma();
+
+	void loadFocos();
+	void loadCamaras();
 
 
 	~Mundo();

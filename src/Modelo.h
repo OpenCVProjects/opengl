@@ -17,12 +17,15 @@ using namespace std;
 typedef vector<Cara> ListaFace;
 typedef vector<Punto3D> ListaVertex;
 
- enum tipoVista {wired, solid, flat, smooth};
+ enum tipoVista {wired, flat, smooth};
 
 
 class Modelo {
 
 private:
+  // Parámetros del material
+	GLfloat material_difuso[4], material_ambiente[4], material_specular[4], material_emission[4];
+
 	float alpha;
 	float beta;
 
@@ -31,6 +34,8 @@ private:
 
 	int _NumCaras;
 	int _NumVertices;
+
+	void setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
 
 public:
 	Modelo();

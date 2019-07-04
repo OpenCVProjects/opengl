@@ -1,0 +1,710 @@
+{
+  "focos": [
+    {
+    "brillo"      : 1000,
+    "luzdifusa"   : [100.0, 1.0, 1.0, 1.0],
+    "luzambiente" : [100.0, 0.0, 0.0, 1.0],
+    "luzespecular": [100.0, 1.0, 1.0, 1.0],
+    "posicion"    : [1000.0, 20.0, 20.0, 0.0]
+    },{
+    "brillo"      : 20,
+    "luzdifusa"   : [2.0, 2.0, 2.0, 2.0],
+    "luzambiente" : [20.0, 500.0, 20.0, 1.0],
+    "luzespecular": [1.0, 1.0, 1.0, 1.0],
+    "posicion"    : [10.0, 20.0, 20.0, 0.0]
+  },{
+    "brillo"      : 20,
+    "luzdifusa"   : [0.5, 0.8, 0.0, 1.0],
+    "luzambiente" : [0.5, 0.5, 0.5, 1.0],
+    "luzespecular": [0.20, 0.20, 0.20, 1.0],
+    "posicion"    : [2.0, 1.0, -6.0, 0.0]
+  }],
+  "camaras" : [
+    {
+      "ejeX"      : 300,
+      "ejeY"      : 150,
+      "ejeZ"      : 200,
+      "centerX"   : 0,
+      "centerY"   : 0,
+      "centerZ"   : 0,
+      "upX"       : 0,
+      "upY"       : 1,
+      "upZ"       : 0
+    },{
+      "ejeX"      : 0,
+      "ejeY"      : 400,
+      "ejeZ"      : 0,
+      "centerX"   : 0,
+      "centerY"   : 0,
+      "centerZ"   : 0,
+      "upX"       : 1,
+      "upY"       : 1,
+      "upZ"       : 1
+    },{
+      "ejeX"      : 350,
+      "ejeY"      : 0,
+      "ejeZ"      : 0,
+      "centerX"   : 0,
+      "centerY"   : 0,
+      "centerZ"   : 0,
+      "upX"       : 1,
+      "upY"       : 1,
+      "upZ"       : 0
+    }
+  ],
+  "modelos" : [
+    {
+      "_comentario_" : "SOL",
+      "escala"    : 0.04,
+      "alpha"     : 0,
+      "beta"      : 0,
+      "omega"     : 0,
+      "rotX"      : 0.0,
+      "rotY"      : 1.0,
+      "rotZ"      : 0.0,
+      "trasX"     : 0.0,
+      "trasY"     : 0.0,
+      "trasZ"     : 0.0,
+      "radio"     : 0,
+      "material"  : {
+        "ambient"     : [0.329412, 0.223529, 0.027451, 1.0],
+        "diffuse"     : [0.780392, 0.568627, 0.113725, 1.0],
+        "specular"    : [0.992157, 0.941176, 0.807843, 1.0],
+        "shininess"   : 0.21794872
+      },
+      "satelites" : []
+    },
+    {
+      "_comentario_" : "Mercurio",
+      "escala"     : 0.003,
+      "alpha"      : 0,
+      "beta"       : 0,
+      "omega"      : 0.8,
+      "rotX"       : 0.0,
+      "rotY"       : 1.0 ,
+      "rotZ"       : 0,
+      "trasX"      : 0.0,
+      "trasY"      : 0.0,
+      "trasZ"      : 0.0,
+      "radio"      : 5.89,
+      "material"   : {
+        "ambient"     : [0.25, 0.25, 0.25, 1.0],
+        "diffuse"     : [0.4, 0.4, 0.4, 1.0],
+        "specular"    : [0.256777, 0.9, 0.9, 1.0],
+        "shininess"   : 100
+      },
+      "satelites" : []
+
+    },
+    {
+      "_comentario_" : "Venus",
+      "escala"     : 0.006,
+      "alpha"      : 0,
+      "beta"       : 0,
+      "omega"      : 0.7,
+      "rotX"       : 0.0,
+      "rotY"       : 1.0 ,
+      "rotZ"       : 0,
+      "trasX"      : 0.0,
+      "trasY"      : 0.0,
+      "trasZ"      : 0.0,
+      "radio"      : 10.36,
+      "material"   : {
+        "ambient"     : [0.19125, 0.0735, 0.0225, 1.0],
+        "diffuse"     : [0.7038, 0.27048, 0.0828, 1.0],
+        "specular"    : [0.256777, 0.137622, 0.086014, 1.0],
+        "shininess"   : 12.8
+      },
+      "satelites" : []
+    },
+    {
+      "_comentario_" : "Tierra",
+      "escala"     : 0.0065,
+      "alpha"      : 0,
+      "beta"       : 0,
+      "omega"      : 0.5,
+      "rotX"       : 0.0,
+      "rotY"       : 1.0 ,
+      "rotZ"       : 0,
+      "trasX"      : 0.0,
+      "trasY"      : 0.0,
+      "trasZ"      : 0.0,
+      "radio"      : 14.89,
+      "material"   : {
+        "ambient"     : [0.1, 0.1, 0.1, 1.0],
+        "diffuse"     : [0.0, 0.0, 0.8, 1.0],
+        "specular"    : [0.9, 0.9, 0.9, 1.0],
+        "shininess"   : 100
+      },
+      "satelites" : [{
+        "_comentario_" : "Luna",
+          "escala"     : 0.002,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 0.8,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 1,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      }]
+    }, {
+        "_comentario_" : "Marte",
+        "escala"     : 0.004,
+        "alpha"      : 0,
+        "beta"       : 0,
+        "omega"      : 0.5,
+        "rotX"       : 0.0,
+        "rotY"       : 1.0 ,
+        "rotZ"       : 0,
+        "trasX"      : 0.0,
+        "trasY"      : 0.0,
+        "trasZ"      : 0.0,
+        "radio"      : 22.79,
+        "material"   : {
+          "ambient"     : [0.2295, 0.08825, 0.0275, 1.0],
+          "diffuse"     : [0.5508, 0.2118, 0.066, 1.0],
+          "specular"    : [0.580594, 0.223257, 0.0695701, 1.0],
+          "shininess"   : 51.2
+        },
+        "satelites" : [{
+          "_comentario_" : "Phobos",
+            "escala"     : 0.0003,
+            "alpha"      : 0,
+            "beta"       : 0,
+            "omega"      : 0.7,
+            "rotX"       : 0.0,
+            "rotY"       : 1.0 ,
+            "rotZ"       : 0,
+            "trasX"      : 0.0,
+            "trasY"      : 0.0,
+            "trasZ"      : 0.0,
+            "radio"      : 1,
+            "material"   : {
+              "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+              "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+              "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+              "shininess"   : 38.4
+            }
+        },
+        {
+          "_comentario_" : "Deimos",
+            "escala"     : 0.0004,
+            "alpha"      : 0,
+            "beta"       : 0,
+            "omega"      : 0.5,
+            "rotX"       : 0.0,
+            "rotY"       : 1.0 ,
+            "rotZ"       : 0,
+            "trasX"      : 0.0,
+            "trasY"      : 0.0,
+            "trasZ"      : 0.0,
+            "radio"      : 2,
+            "material"   : {
+              "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+              "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+              "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+              "shininess"   : 38.4
+            }
+        }]
+      },
+      {
+        "_comentario_" : "Ceres",
+        "escala"     : 0.004,
+        "alpha"      : 0,
+        "beta"       : 0,
+        "omega"      : 0.7,
+        "rotX"       : 0.0,
+        "rotY"       : 1.0 ,
+        "rotZ"       : 0,
+        "trasX"      : 0.0,
+        "trasY"      : 0.0,
+        "trasZ"      : 0.0,
+        "radio"      : 27.66,
+        "material"   : {
+          "ambient"     : [0.25, 0.25, 0.25, 1.0],
+          "diffuse"     : [0.4, 0.4, 0.4, 1.0],
+          "specular"    : [0.774597, 0.774597, 0.774597, 1.0],
+          "shininess"   : 76.8
+        },
+        "satelites" : []
+      },
+      {
+        "_comentario_" : "Jupiter",
+        "escala"     : 0.02,
+        "alpha"      : 0,
+        "beta"       : 0,
+        "omega"      : 0.76,
+        "rotX"       : 0.0,
+        "rotY"       : 1.0 ,
+        "rotZ"       : 0,
+        "trasX"      : 0.0,
+        "trasY"      : 0.0,
+        "trasZ"      : 0.0,
+        "radio"      : 42.03,
+        "material"   : {
+          "ambient"     : [0.19125, 0.0735, 0.0225, 1.0],
+          "diffuse"     : [0.7038, 0.27048, 0.0828, 1.0],
+          "specular"    : [0.256777, 0.137622, 0.086014, 1.0],
+          "shininess"   : 12.8
+        },
+        "satelites" : [{
+          "_comentario_" : "io",
+            "escala"     : 0.0065,
+            "alpha"      : 0,
+            "beta"       : 0,
+            "omega"      : 0.7,
+            "rotX"       : 0.0,
+            "rotY"       : 1.0 ,
+            "rotZ"       : 0,
+            "trasX"      : 0.0,
+            "trasY"      : 0.0,
+            "trasZ"      : 0.0,
+            "radio"      : 4,
+            "material"   : {
+              "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+              "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+              "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+              "shininess"   : 38.4
+            }
+        },{
+        "_comentario_" : "europa",
+          "escala"     : 0.006,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 0.9,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6,
+          "material"   : {
+            "ambient"     : [0.125375, 0.35, 0.86625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },{
+      "_comentario_" : "ganimedes",
+        "escala"     : 0.010,
+        "alpha"      : 0,
+        "beta"       : 0,
+        "omega"      : 1.2,
+        "rotX"       : 0.0,
+        "rotY"       : 1.0 ,
+        "rotZ"       : 0,
+        "trasX"      : 0.0,
+        "trasY"      : 0.0,
+        "trasZ"      : 0.0,
+        "radio"      : 9,
+        "material"   : {
+          "ambient"     : [0.235375, 0.75, 0.86625, 0.82],
+          "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+          "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+          "shininess"   : 38.4
+        }
+        },{
+        "_comentario_" : "calisto",
+          "escala"     : 0.008,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1.4,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 11,
+          "material"   : {
+            "ambient"     : [0.95375, 0.95, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      }]
+    },{
+      "_comentario_" : "Saturno",
+      "escala"     : 0.015,
+      "alpha"      : 0,
+      "beta"       : 0,
+      "omega"      : 0.7,
+      "rotX"       : 0.0,
+      "rotY"       : 1.0 ,
+      "rotZ"       : 0,
+      "trasX"      : 0.0,
+      "trasY"      : 0.0,
+      "trasZ"      : 0.0,
+      "radio"      : 70.03,
+      "material"   : {
+        "ambient"     : [0.45125, 0.32235, 0.12325, 1.0],
+        "diffuse"     : [0.4438, 0.67048, 0.4828, 1.0],
+        "specular"    : [0.256777, 0.137622, 0.086014, 1.0],
+        "shininess"   : 12.8
+      },
+      "satelites" : [{
+        "_comentario_" : "titan",
+          "escala"     : 0.008,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 0.7,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 4,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo0",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo1",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.1,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo2",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.2,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo3",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.3,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo4",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.4,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo5",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.5,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo7",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.7,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo8",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.8,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },
+      {
+        "_comentario_" : "anillo9",
+          "escala"     : 0.0001,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 6.9,
+          "material"   : {
+            "ambient"     : [0.05375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      }]
+    },{
+      "_comentario_" : "Urano",
+      "escala"     : 0.012,
+      "alpha"      : 0,
+      "beta"       : 0,
+      "omega"      : 0.6,
+      "rotX"       : 0.0,
+      "rotY"       : 1.0 ,
+      "rotZ"       : 0,
+      "trasX"      : 0.0,
+      "trasY"      : 0.0,
+      "trasZ"      : 0.0,
+      "radio"      : 95.03,
+      "material"   : {
+        "ambient"     : [0.0,0.05,0.05, 1.0],
+        "diffuse"     : [0.4,0.5,0.5, 1.0],
+        "specular"    : [0.04,0.7,0.7, 1.0],
+        "shininess"   : 12.8
+      },
+      "satelites" : [{
+        "_comentario_" : "miranda",
+          "escala"     : 0.008,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 0.7,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 2,
+          "material"   : {
+            "ambient"     : [0.23375, 0.4565, 0.34565, 0.82],
+            "diffuse"     : [0.12375, 0.123525, 0.234525, 0.82],
+            "specular"    : [0.331341, 0.12342, 0.98852, 0.82],
+            "shininess"   : 38.4
+          }
+      },{
+        "_comentario_" : "ariel",
+          "escala"     : 0.009,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 0.8,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 4,
+          "material"   : {
+            "ambient"     : [0.213375, 0.545, 0.354625, 0.82],
+            "diffuse"     : [0.98275, 0.545, 0.24425, 0.82],
+            "specular"    : [0.322741, 0.545634, 0.006435, 0.82],
+            "shininess"   : 38.4
+          }
+      },{
+        "_comentario_" : "umbrial",
+          "escala"     : 0.0073,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1.3,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 5.5,
+          "material"   : {
+            "ambient"     : [0.95375, 0.05, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },{
+        "_comentario_" : "titana",
+          "escala"     : 0.0093,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 7.6,
+          "material"   : {
+            "ambient"     : [0.55375, 0.95, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      },{
+        "_comentario_" : "oberon",
+          "escala"     : 0.0099,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 1.6,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 9.3,
+          "material"   : {
+            "ambient"     : [0.55375, 0.95, 0.06625, 0.82],
+            "diffuse"     : [0.18275, 0.17, 0.22525, 0.82],
+            "specular"    : [0.332741, 0.328634, 0.346435, 0.82],
+            "shininess"   : 38.4
+          }
+      }]
+    },{
+      "_comentario_" : "Pluton",
+      "escala"     : 0.002,
+      "alpha"      : 0,
+      "beta"       : 0,
+      "omega"      : 0.61234,
+      "rotX"       : 0.0,
+      "rotY"       : 1.3 ,
+      "rotZ"       : 0,
+      "trasX"      : 0.0,
+      "trasY"      : 0.0,
+      "trasZ"      : 0.0,
+      "radio"      : 130.50,
+      "material"   : {
+        "ambient"     : [0.25, 0.25, 0.25, 1.0],
+        "diffuse"     : [0.4, 0.4, 0.4, 1.0],
+        "specular"    : [0.774597, 0.774597, 0.774597, 1.0],
+        "shininess"   : 76.8
+      },
+      "satelites" : [{
+        "_comentario_" : "caronte",
+          "escala"     : 0.0019,
+          "alpha"      : 0,
+          "beta"       : 0,
+          "omega"      : 0.71244,
+          "rotX"       : 0.0,
+          "rotY"       : 1.0 ,
+          "rotZ"       : 0,
+          "trasX"      : 0.0,
+          "trasY"      : 0.0,
+          "trasZ"      : 0.0,
+          "radio"      : 3,
+          "material"   : {
+            "ambient"     : [0.23375, 0.4565, 0.34565, 0.82],
+            "diffuse"     : [0.12375, 0.123525, 0.234525, 0.82],
+            "specular"    : [0.331341, 0.12342, 0.98852, 0.82],
+            "shininess"   : 38.4
+          }
+      }]
+    }
+]}

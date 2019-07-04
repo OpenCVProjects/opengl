@@ -2,39 +2,29 @@
 
 Camara::Camara() {
 
-	// camara 0
-	camara[0].eyeX=5;
-	camara[0].eyeY=5;
-	camara[0].eyeZ=5;
-	camara[0].centerX=0;
-	camara[0].centerY=0;
-	camara[0].centerZ=0;
-	camara[0].upX=0;
-	camara[0].upY=1;
-	camara[0].upZ=0;
+	ifstream ifs("parametros.json");
+	Json::Reader reader;
+	Json::Value obj;
+	reader.parse(ifs, obj);
 
-	// camara 1
-	camara[1].eyeX=0;
-	camara[1].eyeY=10;
-	camara[1].eyeZ=0;
-	camara[1].centerX=0;
-	camara[1].centerY=0;
-	camara[1].centerZ=0;
-	camara[1].upX=1;
-	camara[1].upY=0;
-	camara[1].upZ=1;
+	const Json::Value& characters = obj["camaras"];
 
-	// camara 2
-	camara[2].eyeX=-5;
-	camara[2].eyeY=10;
-	camara[2].eyeZ=10;
-	camara[2].centerX=0;
-	camara[2].centerY=0;
-	camara[2].centerZ=0;
-	camara[2].upX=0;
-	camara[2].upY=1;
-	camara[2].upZ=1;
+	for(int i = 0; i < characters.size(); i++){
+		// Ejes
+		camara[i].eyeX = characters[i]["ejeX"].asFloat();
+		camara[i].eyeY = characters[i]["ejeY"].asFloat();
+		camara[i].eyeZ = characters[i]["ejeZ"].asFloat();
 
+		// Center
+		camara[i].centerX = characters[i]["centerX"].asFloat();
+		camara[i].centerY = characters[i]["centerY"].asFloat();
+		camara[i].centerZ = characters[i]["centerZ"].asFloat();
+
+		// Up
+		camara[i].upX = characters[i]["upX"].asFloat();
+		camara[i].upY = characters[i]["upY"].asFloat();
+		camara[i].upZ = characters[i]["upZ"].asFloat();
+	}
 }
 
 
@@ -60,7 +50,6 @@ void Camara::setCamara(int index, GLdouble eyeX,GLdouble eyeY,GLdouble eyeZ,GLdo
 
 ////////////////////////////////////////////////////////////////////////////////
 void Camara::activarCamara(int index){
-	//cout << "activarCamara " << index << endl;
 	gluLookAt(camara[index].eyeX, camara[index].eyeY, camara[index].eyeZ,
 			camara[index].centerX, camara[index].centerY, camara[index].centerZ,
 			camara[index].upX, camara[index].upY,camara[index].upZ);
@@ -84,6 +73,25 @@ void Camara::modificarEyeZ(int index, GLfloat valor){
 	camara[index].eyeZ=valor;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+void Camara::zoomIn(int index, GLfloat valor){
+	if(camara[index].eyeX != 0)
+		camara[index].eyeX = camara[index].eyeX + valor;
+	if(camara[index].eyeY != 0)
+		camara[index].eyeY = camara[index].eyeY + valor;
+	if(camara[index].eyeZ != 0)
+		camara[index].eyeZ = camara[index].eyeZ + valor;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+void Camara::zoomOut(int index, GLfloat valor){
+	if(camara[index].eyeX != 0)
+		camara[index].eyeX = camara[index].eyeX - valor;
+	if(camara[index].eyeY != 0)
+		camara[index].eyeY = camara[index].eyeY - valor;
+	if(camara[index].eyeZ != 0)
+		camara[index].eyeZ = camara[index].eyeZ - valor;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 void Camara::setFrustrum(GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar){

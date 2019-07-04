@@ -5,8 +5,12 @@
 #include "Camara.h"
 #include <iostream>
 #include <sys/time.h>
+#include <math.h>
 #include <time.h>
+#include <cstring>
+#include <vector>
 #include "Light.h"
+
 
 using namespace std;
 
@@ -38,12 +42,16 @@ class Mundo {
 	float aspect;
 	float angulo;
 	int window;
-	Modelo Sol;
-	Light *lights;
+	Light *focos;
 	Camara *camaras;
 
+	// Modelos del sistema
+	Modelo Sol;
+	Modelo Mercurio;
+	vector<Modelo> modelos;
+
 	// Entero indicando la camara activa del array de camaras
-	int activeCamera; 
+	int activeCamera;
 
 	// Tamaño de los ejes y del alejamiento de Z.
 	int tamanio;
@@ -52,7 +60,7 @@ class Mundo {
 	// Factor para el tamaño del modelo.
 	float escalaGeneral;
 
-	// Rotacion de los modelos.
+	// Rotación del ratón
 	float alpha;
 	float beta;
 
@@ -67,11 +75,16 @@ class Mundo {
 	int iFondo;
 	int iDibujo;
 
+	float tiempoSintetico;
+
+	int itModelos;
+
 
 public:
 	Mundo();
 
   void drawAxis(void);
+	void pintarOribta(float radio);
 	void display(void);
 	void onMouse(int button, int state, int x, int y);
 	void onMotion(int x, int y);
@@ -87,13 +100,12 @@ public:
 	int getIFondo();
 	void setIDibujo(int iDibujo);
 	int getIDibujo();
-	void drawModel(Modelo modelo,float escala);
+	void drawModel(Modelo modelo);
 	void setIForma(tipoVista iShade);
 	tipoVista getIForma();
 
 	void loadFocos();
 	void loadCamaras();
-
 
 	~Mundo();
 };

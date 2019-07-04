@@ -10,7 +10,6 @@ Modelo::Modelo() {
 Modelo::Modelo(const int ncaras, const int nvertices) {
 	_NumCaras = ncaras;
 	_NumVertices = nvertices;
-	inicializarParametros();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -24,8 +23,8 @@ void Modelo::setVector4(GLfloat *v, GLfloat v0, GLfloat v1, GLfloat v2,
 
 ////////////////////////////////////////////////////////////////////////////////
 void Modelo::inicializarParametros() {
-	alpha = 0;
-	beta = 0;
+// Cargamos los parámetros del json
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +58,7 @@ void Modelo::Load_Model(char fileName[50]) {
 	char cadena[100];
 
 	// Apertura para lectura.
-	if ((fich = fopen("../Esfera.asc", "r")) == NULL) {
+	if ((fich = fopen("Esfera.asc", "r")) == NULL) {
 		cout << " Error en la apertura. Es posible que el fichero no exista \n "
 				<< endl;
 		exit(1);
@@ -87,6 +86,7 @@ void Modelo::Load_Model(char fileName[50]) {
 				fscanf(fich, "%[Face]%d: %[A:]%d %[B:]%d %[C:]%d\n", cad1,
 						&FaceNumber, cad2, &A, cad3, &B, cad4, &C);
 				fgets(cadena, 100, fich);
+
 				// Cálculo del vector normal a cada cara (Nx,Ny,Nz).
 				ListaCaras[FaceNumber] = Cara(A, B, C, Normal);
 				ax = ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
@@ -114,6 +114,7 @@ void Modelo::Load_Model(char fileName[50]) {
 			}
 	}
 	fclose(fich);
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -155,7 +156,7 @@ void Modelo::Draw_Model(tipoVista iForma, float scale_from_editor, float zoom) {
 			glEnd();
 
 		}
-		//cout << "wired" << endl;
+
 		break;
 
 	case flat:
@@ -164,6 +165,7 @@ void Modelo::Draw_Model(tipoVista iForma, float scale_from_editor, float zoom) {
 
 		for (int FaceNumber = 0; FaceNumber < _NumCaras; FaceNumber++) {
 			glBegin(GL_TRIANGLES);
+
 			// Ajustamos la normal de la cara
 			glNormal3f(ListaCaras[FaceNumber].getNormalX(),
 					ListaCaras[FaceNumber].getNormalY(),
@@ -201,6 +203,7 @@ void Modelo::Draw_Model(tipoVista iForma, float scale_from_editor, float zoom) {
 
 		for (int FaceNumber = 0; FaceNumber < _NumCaras; FaceNumber++) {
 			glBegin(GL_TRIANGLES);
+
 			// Ajustamos la normal para cada punto
 			glNormal3f(
 					ListaPuntos3D[ListaCaras[FaceNumber].getA()].getX()
@@ -246,13 +249,87 @@ void Modelo::Draw_Model(tipoVista iForma, float scale_from_editor, float zoom) {
 							* scale_from_editor * zoom,
 					ListaPuntos3D[ListaCaras[FaceNumber].getC()].getZ()
 							* scale_from_editor * zoom);
-
 			glEnd();
-
 		}
 		break;
 	}
+}
 
+void Modelo::cargarParametros(string modelName) {
+	cout << "Cargar parámetros de " << modelName << endl;
+	int i = 0;
+
+	ifstream ifs("parametros.json");
+	Json::Reader reader;
+	Json::Value obj;
+	reader.parse(ifs, obj);
+	const Json::Value& characters = obj[modelName];
+
+	this->escala = characters["escala"].asFloat();
+	this->alpha = characters["alpha"].asFloat();
+	this->beta = characters["beta"].asFloat();
+
+	// Cargamos los materiales ambiente
+	this->material_ambiente[0] = characters["material"]["ambient"][0].asFloat();
+	this->material_ambiente[1] = characters["material"]["ambient"][1].asFloat();
+	this->material_ambiente[2] = characters["material"]["ambient"][2].asFloat();
+	this->material_ambiente[3] = characters["material"]["ambient"][3].asFloat();
+
+	// difuso
+	this->material_difuso[0] = characters["material"]["diffuse"][0].asFloat();
+	this->material_difuso[1] = characters["material"]["diffuse"][1].asFloat();
+	this->material_difuso[2] = characters["material"]["diffuse"][2].asFloat();
+	this->material_difuso[3] = characters["material"]["diffuse"][3].asFloat();
+
+	// specular
+	this->material_specular[0] =
+			characters["material"]["specular"][0].asFloat();
+	this->material_specular[1] =
+			characters["material"]["specular"][1].asFloat();
+	this->material_specular[2] =
+			characters["material"]["specular"][2].asFloat();
+	this->material_specular[3] =
+			characters["material"]["specular"][3].asFloat();
+
+	// brillo
+	this->brillo = characters["material"]["shininess"].asFloat();
+
+	// Asuntos de rotación y traslación
+	this->omega = characters["omega"].asFloat();
+
+	this->rotX = characters["rotX"].asFloat();
+	this->rotY = characters["rotY"].asFloat();
+	this->rotZ = characters["rotZ"].asFloat();
+
+	this->radio = characters["radio"].asFloat();
+}
+
+float Modelo::getEscala() {
+	return this->escala;
+}
+
+float Modelo::getAlpha() {
+	return this->alpha;
+}
+
+float Modelo::getBeta() {
+	return this->beta;
+}
+
+void Modelo::setAlpha(float alpha) {
+	this->alpha = alpha;
+}
+
+void Modelo::setBeta(float beta) {
+	this->beta = beta;
+}
+
+void Modelo::getMatAmbient(GLfloat *v) {
+	v = material_difuso;
+}
+
+int Modelo::getBrillo() {
+	return this->brillo;
 }
 
 Modelo::~Modelo() {

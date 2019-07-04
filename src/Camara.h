@@ -4,6 +4,8 @@
 #include <GL/glu.h>
 #include <GL/gl.h>
 #include <iostream>
+#include <fstream>
+#include <jsoncpp/json/json.h>
 
 using namespace std;
 
@@ -28,6 +30,8 @@ public:
 	void modificarEyeX(int index, GLfloat valor);
 	void modificarEyeY(int index, GLfloat valor);
 	void modificarEyeZ(int index, GLfloat valor);
+	void zoomOut(int index, GLfloat valor);
+	void zoomIn(int index, GLfloat valor); 
 	void setCamara(int index, GLdouble eyeX,GLdouble eyeY,GLdouble eyeZ,GLdouble centerX,GLdouble centerY,GLdouble centerZ,GLdouble upX,GLdouble upY,GLdouble upZ);
 	void setFrustrum(GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar);
 	void activarFrustrum();

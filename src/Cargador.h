@@ -23,7 +23,6 @@ public:
   Cargador();
   void cargarFocos(GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
   ~Cargador();
-
 };
 
 #endif /* CARGADOR_H_ */
